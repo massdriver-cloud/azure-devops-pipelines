@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "e47034a5-a5e4-4159-ac8e-26aa1981b1ec",
+  "name": "mass-bundle-publish",
+  "friendlyName": "Publish Bundle",
+  "description": "Publishes the changes to your bundle to the Massdriver canvas.",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "author": "Massdriver",
+  "version": {
+    "Major": 0,
+    "Minor": 1,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Publish Bundle",
+  "inputs": [
+    {
+      "name": "buildDirectory",
+      "type": "string",
+      "label": "Build Directory",
+      "defaultValue": "./massdriver",
+      "required": false,
+      "helpMarkDown": "Specify the build directory (relative to the repository root) where the Mass bundle should be built and published."
+    }
+  ],  
+  "execution": {
+    "Node": {
+      "target": "index.js"
+    }
+  }
+}

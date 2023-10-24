@@ -1,0 +1,24 @@
+{
+  "name": "buildandreleasetasks",
+  "version": "0.2.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.2",
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.4",
+    "@types/q": "^1.5.6",
+    "azure-pipelines-task-lib": "^4.6.1",
+    "sync-request": "^6.1.0"
+  }
+}

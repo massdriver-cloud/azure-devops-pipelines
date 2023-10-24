@@ -1,0 +1,76 @@
+{
+  "manifestVersion": 1,
+  "id": "mass-cli",
+  "name": "Mass CLI",
+  "version": "0.0.13",
+  "publisher": "Massdriver",
+  "icons": {
+    "default": "icon.png"
+  },
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Mass CLI extension for Azure DevOps Pipeline",
+  "categories": ["Azure Pipelines"],
+  "files": [
+    {
+      "path": "massInstallCLI"
+    },
+    {
+      "path": "massBundlePublish"
+    }, 
+    {
+      "path": "massImagePush"
+    },
+    {
+      "path": "massAppPatch"
+    },
+    {
+      "path": "massAppDeploy"
+    } 
+  ],
+  "contributions": [
+    {
+      "id": "mass-cli-install",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "massInstallCLI"
+      }
+    },
+    {
+      "id": "mass-bundle-publish",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "massBundlePublish"
+      }
+    },
+    {
+      "id": "mass-image-push",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "massImagePush"
+      }
+    },
+    {
+      "id": "mass-app-patch",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "massAppPatch"
+      }
+    },
+    {
+      "id": "mass-app-deploy",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "massAppDeploy"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "586c62b2-a7bc-4b3d-8468-4095a3cea9e7",
+  "name": "mass-cli-install",
+  "friendlyName": "Install Mass CLI",
+  "description": "Installs the Mass CLI",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "author": "Massdriver",
+  "version": {
+      "Major": 3,
+      "Minor": 0,
+      "Patch": 0
+  },
+  "instanceNameFormat": "Install Mass CLI",
+  "inputs": [],
+  "execution": {
+    "Node16": {
+      "target": "dist/index.js"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "massimagepush",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^4.6.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.2",
+    "@types/node": "^20.8.5",
+    "@types/q": "^1.5.6",
+    "sync-request": "^6.1.0"
+  }
+}

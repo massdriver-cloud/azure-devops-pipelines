@@ -1,0 +1,15 @@
+{
+  "name": "mass-cli-extension",
+  "version": "0.0.7",
+  "description": "Azure Devops extension for Mass CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Massdriver",
+  "license": "ISC",
+  "dependencies": {
+    "azure-devops-extension-sdk": "^3.1.2"
+  }
+}
