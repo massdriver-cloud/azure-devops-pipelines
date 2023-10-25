@@ -63,5 +63,5 @@ async function installLatestRelease(assetUrl: string, currentVersion: string) {
   }
 }
 
-const currentVersion = '1.5.5'; // Replace with your current version
+const currentVersion = '1.5.5';
 fetchAndInstallLatestRelease(currentVersion);
