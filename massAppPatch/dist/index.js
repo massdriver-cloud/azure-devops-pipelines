@@ -39,14 +39,12 @@ function run() {
             const project = tl.getInput('project', true) || '';
             const env = tl.getInput('env', true) || '';
             const manifest = tl.getInput('manifest', true) || '';
-            const input = tl.getInput('input', true) || '';
+            const set = tl.getInput('set', true) || '';
             const massTool = tl.tool('mass');
             massTool.arg('app');
             massTool.arg('patch');
             massTool.arg(`${project}-${env}-${manifest}`);
-            for (var element of input) {
-                massTool.arg(`--set=${element}`);
-            }
+            massTool.arg(`--set=${set}`);
             const exitCode = yield massTool.execAsync();
             if (exitCode === 0) {
                 console.log('Operation succeeded.');

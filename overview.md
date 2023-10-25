@@ -64,7 +64,7 @@ stages:
         project: 'dev'
         env: 'test'
         manifest: 'foobar'
-        input: '.image.tag="$(Build.SourceVersion)"'
+        set: '.image.tag="$(Build.SourceVersion)"'
 
     - task: mass-app-deploy@0
       displayName: 'Deploy App'

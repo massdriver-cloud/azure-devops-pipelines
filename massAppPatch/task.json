@@ -10,7 +10,7 @@
   "version": {
     "Major": 0,
     "Minor": 1,
-    "Patch": 0
+    "Patch": 1
   },
   "instanceNameFormat": "App Patch",
   "inputs": [
@@ -39,12 +39,12 @@
       "helpMarkDown": "Specify the manifest abbreviation."
     },
     {
-      "name": "input",
-      "type": "multiLine",
-      "label": "Input for --set parameter",
+      "name": "patch",
+      "type": "string",
+      "label": "Set parameter value",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Specify the input for the `--set` parameter using JQ expressions. One parameter per line."
+      "helpMarkDown": "Specify the value for the `--set` parameter using JQ expression."
     }
   ],
   "execution": {

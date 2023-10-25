@@ -6,15 +6,14 @@ async function run(): Promise<void> {
     const project: string = tl.getInput('project', true) || '';
     const env: string = tl.getInput('env', true) || '';
     const manifest: string = tl.getInput('manifest', true) || '';
-    const input: string = tl.getInput('input', true) || '';
+    const patch: string = tl.getInput('patch', true) || '';
 
     const massTool: tr.ToolRunner = tl.tool('mass');
     massTool.arg('app');
     massTool.arg('patch');
     massTool.arg(`${project}-${env}-${manifest}`);
-    for (var element of input) {
-      massTool.arg(`--set=${element}`);
-    }
+    massTool.arg(`--set=${patch}`);
+  
 
       const exitCode: number = await massTool.execAsync();
 
