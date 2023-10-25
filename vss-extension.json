@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "mass-cli",
   "name": "Mass CLI",
-  "version": "0.0.13",
+  "version": "0.0.1",
   "publisher": "Massdriver",
   "icons": {
     "default": "icon.png"

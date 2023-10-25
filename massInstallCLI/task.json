@@ -8,8 +8,8 @@
   "category": "Utility",
   "author": "Massdriver",
   "version": {
-      "Major": 3,
-      "Minor": 0,
+      "Major": 0,
+      "Minor": 1,
       "Patch": 0
   },
   "instanceNameFormat": "Install Mass CLI",

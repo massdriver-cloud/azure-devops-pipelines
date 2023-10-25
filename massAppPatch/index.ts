@@ -6,27 +6,23 @@ async function run(): Promise<void> {
     const project: string = tl.getInput('project', true) || '';
     const env: string = tl.getInput('env', true) || '';
     const manifest: string = tl.getInput('manifest', true) || '';
-    const setImagePath: string = tl.getInput('setImagePath', true) || '';
-    const setImageValue: string = tl.getInput('setImageValue', true) || '';
+    const input: string = tl.getInput('input', true) || '';
 
-    if (setImagePath) {
-      const massTool: tr.ToolRunner = tl.tool('mass');
-      massTool.arg('app');
-      massTool.arg('patch');
-      massTool.arg(`${project}-${env}-${manifest}`);
-      massTool.arg('--set=');
-      massTool.arg(`${setImagePath}=${setImageValue}`);
+    const massTool: tr.ToolRunner = tl.tool('mass');
+    massTool.arg('app');
+    massTool.arg('patch');
+    massTool.arg(`${project}-${env}-${manifest}`);
+    for (var element of input) {
+      massTool.arg(`--set=${element}`);
+    }
 
-      const exitCode: number = await massTool.exec();
+      const exitCode: number = await massTool.execAsync();
 
       if (exitCode === 0) {
-        console.log('Image tag set in the manifest.');
+        console.log('Operation succeeded.');
       } else {
-        tl.setResult(tl.TaskResult.Failed, 'Error setting image tag in the manifest.');
+        tl.setResult(tl.TaskResult.Failed, 'Error executing the command.');
       }
-    } else {
-      console.log('setImagePath is not defined or empty. No replacement performed.');
-    }
   } catch (error) {
     tl.setResult(tl.TaskResult.Failed, `Error: ${error}`);
   }

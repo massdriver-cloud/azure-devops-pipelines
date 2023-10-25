@@ -12,7 +12,7 @@ async function run(): Promise<void> {
     massTool.arg('deploy');
     massTool.arg(`${project}-${env}-${manifest}`);
 
-    const exitCode: number = await massTool.exec();
+    const exitCode: number = await massTool.execAsync();
 
     if (exitCode === 0) {
       console.log('Massdriver application deployed successfully.');

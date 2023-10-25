@@ -3,7 +3,7 @@ import * as tr from 'azure-pipelines-task-lib/toolrunner';
 
 async function run(): Promise<void> {
   try {
-    const buildDirectory: string | undefined = tl.getInput('build-directory', false);
+    const buildDirectory: string | undefined = tl.getInput('buildDirectory', false);
     const access: string | undefined = tl.getInput('access', false);
 
     const massTool: tr.ToolRunner = tl.tool('mass');
@@ -20,7 +20,7 @@ async function run(): Promise<void> {
       massTool.arg(access);
     }
 
-    const exitCode: number = await massTool.exec();
+    const exitCode: number = await massTool.execAsync();
 
     if (exitCode === 0) {
       console.log('Mass bundle published successfully.');

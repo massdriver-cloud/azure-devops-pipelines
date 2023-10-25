@@ -23,7 +23,7 @@ async function run(): Promise<void> {
     massTool.arg('--image-tag');
     massTool.arg(imageTag);
 
-    const exitCode: number = await massTool.exec();
+    const exitCode: number = await massTool.execAsync();
 
     if (exitCode === 0) {
       console.log('Mass image pushed successfully.');

@@ -2,8 +2,8 @@
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
   "id": "67cace92-3e6d-45a5-a486-1ba7c27ace48",
   "name": "mass-app-patch",
-  "friendlyName": "Set Image Version",
-  "description": "Patch a Massdriver app bundle with a new image tag.",
+  "friendlyName": "App Patch",
+  "description": "Patch a Massdriver app bundle field with a new value.",
   "helpMarkDown": "",
   "category": "Utility",
   "author": "Massdriver",
@@ -12,7 +12,7 @@
     "Minor": 1,
     "Patch": 0
   },
-  "instanceNameFormat": "Set Image Version",
+  "instanceNameFormat": "App Patch",
   "inputs": [
     {
       "name": "project",
@@ -39,25 +39,17 @@
       "helpMarkDown": "Specify the manifest abbreviation."
     },
     {
-      "name": "setImagePath",
+      "name": "input",
       "type": "multiLine",
-      "label": "Image Tag Path",
-      "defaultValue": "<insert-image-tag-path> = \"$(Build.SourceVersion)\"",
+      "label": "Input for --set parameter",
+      "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Specify the path in the manifest where the image tag should be set, e.g. `.runtime.image.tag`."
-    },
-    {
-      "name": "setImageValue",
-      "type": "string",
-      "label": "Image Tag Value",
-      "defaultValue": "$(Build.SourceVersion)",
-      "required": true,
-      "helpMarkDown": "Specify the value to set for the image tag."
+      "helpMarkDown": "Specify the input for the `--set` parameter using JQ expressions. One parameter per line."
     }
   ],
   "execution": {
-    "Node": {
-      "target": "index.js"
+    "Node16": {
+      "target": "dist/index.js"
     }
   }
 }
