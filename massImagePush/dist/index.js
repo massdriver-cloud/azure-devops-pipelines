@@ -33,7 +33,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const tl = __importStar(require("azure-pipelines-task-lib/task"));
-const tr = __importStar(require("azure-pipelines-task-lib/toolrunner"));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -43,7 +42,6 @@ function run() {
             const region = tl.getInput('region', true) || '';
             const imageTag = tl.getInput('imageTag', true) || '';
             const buildContext = tl.getInput('buildContext', true) || '';
-            yield new tr.ToolRunner('printenv').exec();
             const massTool = tl.tool('mass');
             massTool.arg('image');
             massTool.arg('push');
@@ -56,7 +54,7 @@ function run() {
             massTool.arg(buildContext);
             massTool.arg('--image-tag');
             massTool.arg(imageTag);
-            const exitCode = yield massTool.exec();
+            const exitCode = yield massTool.execAsync();
             if (exitCode === 0) {
                 console.log('Mass image pushed successfully.');
             }

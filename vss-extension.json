@@ -4,6 +4,11 @@
   "name": "Mass CLI",
   "version": "0.0.1",
   "publisher": "Massdriver",
+  "public": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/massdriver-cloud/azure-devops-pipelines"
+  },
   "icons": {
     "default": "icon.png"
   },
@@ -14,6 +19,39 @@
   ],
   "description": "Mass CLI extension for Azure DevOps Pipeline",
   "categories": ["Azure Pipelines"],
+  "tags": [
+    "Massdriver",
+    "CI/CD",
+    "Azure",
+    "AWS",
+    "GCP",
+    "DevOps",
+    "IDP",
+    "Platform Engineering"
+  ],
+  "content": {
+    "details": {
+      "path": "overview.md"
+    }
+  },
+  "links": {
+    "demo": {
+      "uri": "https://www.massdriver.cloud/demo",
+      "text": "Book a Demo"
+    },
+    "learn": {
+      "uri": "https://docs.massdriver.cloud",
+      "text": "Learn about Massdriver"
+    },
+    "slack": {
+      "uri": "https://join.slack.com/t/massdrivercommunity/shared_invite/zt-1sxag35w2-eYw7gatS1hwlH2y8MCmwXA",
+      "text": "Community Slack"
+    },
+    "privacy": {
+      "uri": "https://www.massdriver.cloud/privacy-policy",
+      "text": "Privacy Policy"
+    }
+  },
   "files": [
     {
       "path": "massInstallCLI"

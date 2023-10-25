@@ -49,7 +49,7 @@ function run() {
                 massTool.arg('--access');
                 massTool.arg(access);
             }
-            const exitCode = yield massTool.exec();
+            const exitCode = yield massTool.execAsync();
             if (exitCode === 0) {
                 console.log('Mass bundle published successfully.');
             }

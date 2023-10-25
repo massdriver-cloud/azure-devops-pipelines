@@ -43,7 +43,7 @@ function run() {
             massTool.arg('app');
             massTool.arg('deploy');
             massTool.arg(`${project}-${env}-${manifest}`);
-            const exitCode = yield massTool.exec();
+            const exitCode = yield massTool.execAsync();
             if (exitCode === 0) {
                 console.log('Massdriver application deployed successfully.');
             }

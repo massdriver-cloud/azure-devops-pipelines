@@ -39,24 +39,20 @@ function run() {
             const project = tl.getInput('project', true) || '';
             const env = tl.getInput('env', true) || '';
             const manifest = tl.getInput('manifest', true) || '';
-            const setImagePath = tl.getInput('setImagePath', true) || '';
-            const setImageValue = tl.getInput('setImageValue', true) || '';
-            if (setImagePath) {
-                const massTool = tl.tool('mass');
-                massTool.arg('app');
-                massTool.arg('patch');
-                massTool.arg(`${project}-${env}-${manifest}`);
-                massTool.arg(`--set='${setImagePath}="${setImageValue}"'`);
-                const exitCode = yield massTool.exec();
-                if (exitCode === 0) {
-                    console.log('Image tag set in the manifest.');
-                }
-                else {
-                    tl.setResult(tl.TaskResult.Failed, 'Error setting image tag in the manifest.');
-                }
+            const input = tl.getInput('input', true) || '';
+            const massTool = tl.tool('mass');
+            massTool.arg('app');
+            massTool.arg('patch');
+            massTool.arg(`${project}-${env}-${manifest}`);
+            for (var element of input) {
+                massTool.arg(`--set=${element}`);
+            }
+            const exitCode = yield massTool.execAsync();
+            if (exitCode === 0) {
+                console.log('Operation succeeded.');
             }
             else {
-                console.log('setImagePath is not defined or empty. No replacement performed.');
+                tl.setResult(tl.TaskResult.Failed, 'Error executing the command.');
             }
         }
         catch (error) {
