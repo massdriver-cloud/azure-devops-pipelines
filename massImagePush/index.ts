@@ -1,5 +1,6 @@
 import * as tl from 'azure-pipelines-task-lib/task';
 import * as tr from 'azure-pipelines-task-lib/toolrunner';
+import { skip } from 'node:test';
 
 async function run(): Promise<void> {
   try {
@@ -9,6 +10,7 @@ async function run(): Promise<void> {
     const region: string = tl.getInput('region', true) || '';
     const imageTag: string = tl.getInput('imageTag', true) || '';
     const buildContext: string = tl.getInput('buildContext', true) || '';
+    const skipBuild: boolean = tl.getBoolInput('skipBuild', false);
 
     const massTool: tr.ToolRunner = tl.tool('mass');
     massTool.arg('image');
@@ -22,6 +24,9 @@ async function run(): Promise<void> {
     massTool.arg(buildContext);
     massTool.arg('--image-tag');
     massTool.arg(imageTag);
+    if (skipBuild) {
+      massTool.arg('--skip-build')
+    }
 
     const exitCode: number = await massTool.execAsync();
 

@@ -42,6 +42,7 @@ function run() {
             const region = tl.getInput('region', true) || '';
             const imageTag = tl.getInput('imageTag', true) || '';
             const buildContext = tl.getInput('buildContext', true) || '';
+            const skipBuild = tl.getBoolInput('skipBuild', false);
             const massTool = tl.tool('mass');
             massTool.arg('image');
             massTool.arg('push');
@@ -54,6 +55,9 @@ function run() {
             massTool.arg(buildContext);
             massTool.arg('--image-tag');
             massTool.arg(imageTag);
+            if (skipBuild) {
+                massTool.arg('--skip-build');
+            }
             const exitCode = yield massTool.execAsync();
             if (exitCode === 0) {
                 console.log('Mass image pushed successfully.');

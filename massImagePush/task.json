@@ -9,8 +9,8 @@
   "author": "Massdriver",
   "version": {
     "Major": 0,
-    "Minor": 1,
-    "Patch": 0
+    "Minor": 2,
+    "Patch": 1
   },
   "instanceNameFormat": "Push Image",
   "inputs": [
@@ -61,6 +61,14 @@
       "defaultValue": "./",
       "required": true,
       "helpMarkDown": "The build context for your Docker image."
+    },
+    {
+      "name": "skipBuild",
+      "type": "string",
+      "label": "Skip Build",
+      "defaultValue": false,
+      "required": false,
+      "helpMarkDown": "Skip the image build step and only push to ACR."
     }
   ],
   "execution": {
