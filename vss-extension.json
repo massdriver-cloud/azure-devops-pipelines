@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "mass-cli",
   "name": "Mass CLI",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "publisher": "Massdriver",
   "public": true,
   "repository": {
@@ -67,7 +67,7 @@
     },
     {
       "path": "massAppDeploy"
-    } 
+    }
   ],
   "contributions": [
     {
